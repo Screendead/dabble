@@ -1,4 +1,5 @@
 import 'package:dabble/pages/authenticate.dart';
+import 'package:dabble/pages/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -56,24 +57,7 @@ class Dabble extends StatelessWidget {
                 return const Authenticate();
               }
 
-              return Scaffold(
-                body: SizedBox.expand(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text('Welcome ${user.email}!'),
-                      const SizedBox(height: 16),
-                      ElevatedButton(
-                        onPressed: () async {
-                          await FirebaseAuth.instance.signOut();
-                        },
-                        child: const Text('Sign Out'),
-                      ),
-                    ],
-                  ),
-                ),
-              );
+              return const Home();
             },
           ),
         ),
